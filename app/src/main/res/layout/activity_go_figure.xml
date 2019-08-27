@@ -114,16 +114,35 @@
 
         </HorizontalScrollView>
 
-        <Button
-            android:id="@+id/solveButton"
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:background="@drawable/button_box"
-            android:onClick="onSolveClick"
-            android:text="@string/solve"
-            android:textColor="#757575"
-            android:textStyle="italic|bold" />
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/solveButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:background="@drawable/button_box"
+                android:onClick="onSolveClick"
+                android:text="@string/solve"
+                android:textColor="#757575"
+                android:textStyle="italic|bold" />
+
+            <Button
+                android:id="@+id/clearButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:background="@drawable/button_box"
+                android:onClick="onClearClick"
+                android:text="@string/clear"
+                android:textColor="#757575"
+                android:textStyle="italic|bold" />
+
+        </LinearLayout>
 
     </LinearLayout>
 

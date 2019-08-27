@@ -6,5 +6,6 @@
 
     <string name="equal">=</string>
     <string name="solve">Solve</string>
-    <string name="blank">    </string>
+    <string name="clear">Clear</string>
+    <string name="blank"> </string>
 </resources>

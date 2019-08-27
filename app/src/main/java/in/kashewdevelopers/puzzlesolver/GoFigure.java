@@ -148,4 +148,20 @@ public class GoFigure extends AppCompatActivity {
         }
 
     }
+
+    public void onClearClick(View v){
+
+        input_1.setText(R.string.blank);
+        input_2.setText(R.string.blank);
+        input_3.setText(R.string.blank);
+        input_4.setText(R.string.blank);
+
+        answer.setText(R.string.blank);
+
+        operator_1.setText(R.string.blank);
+        operator_2.setText(R.string.blank);
+        operator_3.setText(R.string.blank);
+
+    }
+
 }
