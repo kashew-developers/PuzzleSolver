@@ -120,6 +120,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
             android:background="@drawable/button_box"
+            android:onClick="onSolveClick"
             android:text="@string/solve"
             android:textColor="#757575"
             android:textStyle="italic|bold" />
