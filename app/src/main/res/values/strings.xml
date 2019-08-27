@@ -1,3 +1,10 @@
 <resources>
-    <string name="app_name">Puzzle Solver</string>
+    <string name="app_name">Newspaper Puzzles</string>
+
+    <string name="goFigureTitle">GoFigure</string>
+    <string name="emptyInput">Enter Numbers above</string>
+
+    <string name="equal">=</string>
+    <string name="solve">Solve</string>
+    <string name="blank">    </string>
 </resources>
