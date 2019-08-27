@@ -47,7 +47,10 @@
                     android:layout_height="30dp"
                     android:layout_margin="10dp"
                     android:background="@drawable/operator_box"
-                    android:text="@string/blank" />
+                    android:gravity="center"
+                    android:text="@string/blank"
+                    android:textColor="#000000"
+                    android:textSize="15sp" />
 
                 <EditText
                     android:id="@+id/box2"
@@ -64,7 +67,10 @@
                     android:layout_height="30dp"
                     android:layout_margin="10dp"
                     android:background="@drawable/operator_box"
-                    android:text="@string/blank" />
+                    android:gravity="center"
+                    android:text="@string/blank"
+                    android:textColor="#000000"
+                    android:textSize="15sp" />
 
                 <EditText
                     android:id="@+id/box3"
@@ -81,7 +87,10 @@
                     android:layout_height="30dp"
                     android:layout_margin="10dp"
                     android:background="@drawable/operator_box"
-                    android:text="@string/blank" />
+                    android:gravity="center"
+                    android:text="@string/blank"
+                    android:textColor="#000000"
+                    android:textSize="15sp" />
 
                 <EditText
                     android:id="@+id/box4"
