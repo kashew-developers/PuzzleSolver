@@ -2,22 +2,19 @@ package in.kashewdevelopers.puzzlesolver;
 
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import java.util.Stack;
-import java.util.Vector;
 
 public class GoFigure extends AppCompatActivity {
 
     EditText input_1, input_2, input_3, input_4, answer;
     TextView operator_1, operator_2, operator_3;
     Button solve_button;
-    Toast invalid_input;
+    Toast incomplete_input, cannot_solve;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,7 +35,8 @@ public class GoFigure extends AppCompatActivity {
 
         solve_button = findViewById(R.id.solveButton);
 
-        invalid_input = Toast.makeText(this, "Invalid Input", Toast.LENGTH_SHORT);
+        incomplete_input = Toast.makeText(this, "Enter all values", Toast.LENGTH_SHORT);
+        cannot_solve = Toast.makeText(this, "This set of numbers cannot be solved", Toast.LENGTH_SHORT);
 
     }
 
@@ -120,7 +118,7 @@ public class GoFigure extends AppCompatActivity {
         if( input_1.getText().toString().equals("") || input_2.getText().toString().equals("") ||
                 input_3.getText().toString().equals("") || input_4.getText().toString().equals("") ||
                 answer.getText().toString().equals("") ){
-            invalid_input.show();
+            incomplete_input.show();
             return;
         }
 
@@ -129,6 +127,7 @@ public class GoFigure extends AppCompatActivity {
         String[] operatorMapping = {"+", "-", "*", "/"};
         int[] operators = {0, 0, 0};
         int target = Integer.parseInt( answer.getText().toString() );
+        boolean solved = false;
 
         while( operators[0] <= 3 ){
 
@@ -140,11 +139,16 @@ public class GoFigure extends AppCompatActivity {
                 operator_1.setText( equation[1] );
                 operator_2.setText( equation[3] );
                 operator_3.setText( equation[5] );
+                solved = true;
                 break;
             }
 
             incrementOperators(operators);
 
+        }
+
+        if( ! solved ){
+            cannot_solve.show();
         }
 
     }
@@ -164,4 +168,10 @@ public class GoFigure extends AppCompatActivity {
 
     }
 
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        incomplete_input.cancel();
+        cannot_solve.cancel();
+    }
 }
