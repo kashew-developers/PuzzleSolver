@@ -122,6 +122,10 @@ public class GoFigure extends AppCompatActivity {
             return;
         }
 
+        operator_1.setText(R.string.blank);
+        operator_2.setText(R.string.blank);
+        operator_3.setText(R.string.blank);
+
         String[] equation = {input_1.getText().toString(), "+", input_2.getText().toString(), "+",
                                 input_3.getText().toString(), "+", input_4.getText().toString()};
         String[] operatorMapping = {"+", "-", "*", "/"};
