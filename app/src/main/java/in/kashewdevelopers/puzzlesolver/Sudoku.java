@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
 import android.os.Bundle;
+import android.os.Handler;
 import android.text.Editable;
 import android.text.InputType;
 import android.text.TextWatcher;
@@ -17,7 +18,8 @@ import android.widget.Toast;
 public class Sudoku extends AppCompatActivity {
 
     LinearLayout sudokuBoxLayout;
-    Toast cannotSolveToast;
+    Toast cannotSolveToast, pressBackToast;
+    boolean backPressed = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,6 +30,7 @@ public class Sudoku extends AppCompatActivity {
         createSudokuBoxes();
 
         cannotSolveToast = Toast.makeText(this, "This cannot be solved", Toast.LENGTH_SHORT);
+        pressBackToast = Toast.makeText(this, "Press Back Again", Toast.LENGTH_SHORT);
 
     }
 
@@ -296,5 +299,25 @@ public class Sudoku extends AppCompatActivity {
 
     }
 
+    @Override
+    public void onBackPressed() {
 
+        if( backPressed ) super.onBackPressed();
+
+        backPressed = true;
+        pressBackToast.show();
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                backPressed = false;
+            }
+        }, 2000);
+    }
+
+    @Override
+    protected void onDestroy() {
+        pressBackToast.cancel();
+        cannotSolveToast.cancel();
+        super.onDestroy();
+    }
 }
