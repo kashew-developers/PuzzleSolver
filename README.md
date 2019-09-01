@@ -28,7 +28,6 @@
     <tr>
         <td><img src="media/screenshots/Launch_Screen.png" /> </td>
     </tr>
-
     <tr>
         <th colspan="3"> <center> GoFigure </center> </th>
     </tr>
