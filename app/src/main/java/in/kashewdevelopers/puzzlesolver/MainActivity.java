@@ -5,11 +5,15 @@ import androidx.cardview.widget.CardView;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.View;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
     CardView goFigureCard, sudokuCard;
+    boolean backPressed = false;
+    Toast backPressedToast;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -18,6 +22,7 @@ public class MainActivity extends AppCompatActivity {
 
         goFigureCard = findViewById(R.id.goFigureCard);
         sudokuCard = findViewById(R.id.sudokuCard);
+        backPressedToast = Toast.makeText(this, "Press Back Again", Toast.LENGTH_SHORT);
 
         goFigureCard.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -26,5 +31,27 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+    }
+
+    @Override
+    public void onBackPressed() {
+
+        if( backPressed ) super.onBackPressed();
+
+        backPressed = true;
+        backPressedToast.show();
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                backPressed = false;
+            }
+        }, 2000);
+
+    }
+
+    @Override
+    protected void onDestroy() {
+        backPressedToast.cancel();
+        super.onDestroy();
     }
 }

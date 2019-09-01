@@ -2,6 +2,7 @@ package in.kashewdevelopers.puzzlesolver;
 
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -14,7 +15,8 @@ public class GoFigure extends AppCompatActivity {
     EditText input_1, input_2, input_3, input_4, answer;
     TextView operator_1, operator_2, operator_3;
     Button solve_button;
-    Toast incomplete_input, cannot_solve;
+    Toast incomplete_input, cannot_solve, backPressedToast;
+    boolean backPressed = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,6 +39,7 @@ public class GoFigure extends AppCompatActivity {
 
         incomplete_input = Toast.makeText(this, "Enter all values", Toast.LENGTH_SHORT);
         cannot_solve = Toast.makeText(this, "This set of numbers cannot be solved", Toast.LENGTH_SHORT);
+        backPressedToast = Toast.makeText(this, "Press Back Again", Toast.LENGTH_SHORT);
 
     }
 
@@ -173,9 +176,26 @@ public class GoFigure extends AppCompatActivity {
     }
 
     @Override
+    public void onBackPressed() {
+
+        if( backPressed ) super.onBackPressed();
+
+        backPressed = true;
+        backPressedToast.show();
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                backPressed = false;
+            }
+        }, 2000);
+
+    }
+
+    @Override
     protected void onDestroy() {
-        super.onDestroy();
         incomplete_input.cancel();
         cannot_solve.cancel();
+        backPressedToast.cancel();
+        super.onDestroy();
     }
 }
