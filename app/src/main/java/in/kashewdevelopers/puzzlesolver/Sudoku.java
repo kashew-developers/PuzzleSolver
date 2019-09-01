@@ -284,4 +284,17 @@ public class Sudoku extends AppCompatActivity {
         return false;
     }
 
+    public void onClearClick(View v) {
+
+        for (int i = 0; i < sudokuBoxLayout.getChildCount(); i++) {
+            LinearLayout row = (LinearLayout) sudokuBoxLayout.getChildAt(i);
+            for (int j = 0; j < row.getChildCount(); j++) {
+                EditText box = (EditText) row.getChildAt(j);
+                box.setText(R.string.blank);
+            }
+        }
+
+    }
+
+
 }
