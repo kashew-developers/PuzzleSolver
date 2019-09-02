@@ -3,7 +3,7 @@
 <table>
     <tr>
         <th>Title</th>
-        <td>Puzzle Solver - GoFigure</td>
+        <td>Puzzle Solver - GoFigure, Sudoku</td>
     </tr>
     <tr>
         <th>Short description</th>
@@ -11,7 +11,7 @@
     </tr>
     <tr>
         <th>Full description</th>
-        <td>Currently the puzzle only solves - GoFigure puzzle. <br /> In Future we would be adding various other puzzles like Sudoku, etc. <br /> This is an open source project, you can get its source code at [Kashew-developers/PuzzleSolver](https://github.com/kashew-developers/PuzzleSolver).</td>
+        <td>Currently the puzzle only solves - GoFigure and Sudoku puzzle. <br /> In Future we would be adding various other puzzles. <br /> This is an open source project, you can get its source code at [Kashew-developers/PuzzleSolver](https://github.com/kashew-developers/PuzzleSolver).</td>
     </tr>
 </table>
 
@@ -27,6 +27,14 @@
     </tr>
     <tr>
         <td><img src="media/screenshots/Launch_Screen.png" /> </td>
+    </tr>
+    <tr>
+        <th colspan="3"> <center> Sudoku </center> </th>
+    </tr>
+    <tr>
+        <td><img src="media/screenshots/Sudoku_Empty.png" /></td>
+        <td><img src="media/screenshots/Sudoku_Question.png" /></td>
+        <td><img src="media/screenshots/Sudoku_Solution.png" /></td>
     </tr>
     <tr>
         <th colspan="3"> <center> GoFigure </center> </th>
