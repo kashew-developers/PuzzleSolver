@@ -1,7 +1,6 @@
 package in.kashewdevelopers.puzzlesolver;
 
-import androidx.appcompat.app.AppCompatActivity;
-
+import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
 import android.os.Handler;
@@ -15,7 +14,7 @@ import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
-public class Sudoku extends AppCompatActivity {
+public class Sudoku extends Activity {
 
     LinearLayout sudokuBoxLayout;
     Toast cannotSolveToast, pressBackToast;

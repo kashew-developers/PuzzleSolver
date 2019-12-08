@@ -1,6 +1,6 @@
 package in.kashewdevelopers.puzzlesolver;
 
-import androidx.appcompat.app.AppCompatActivity;
+import android.app.Activity;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
@@ -10,7 +10,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 import java.util.Stack;
 
-public class GoFigure extends AppCompatActivity {
+public class GoFigure extends Activity {
 
     EditText input_1, input_2, input_3, input_4, answer;
     TextView operator_1, operator_2, operator_3;

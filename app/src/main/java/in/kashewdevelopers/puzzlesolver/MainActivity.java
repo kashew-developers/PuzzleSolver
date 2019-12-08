@@ -1,15 +1,15 @@
 package in.kashewdevelopers.puzzlesolver;
 
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
 import android.widget.Toast;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends Activity {
 
     CardView goFigureCard, sudokuCard;
     boolean backPressed = false;
