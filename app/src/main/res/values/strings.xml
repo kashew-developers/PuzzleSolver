@@ -7,7 +7,9 @@
     <string name="sudokuTitle">Sudoku</string>
 
     <string name="equal">=</string>
-    <string name="solve">Solve</string>
-    <string name="clear">Clear</string>
+    <string name="solve">Solve Sudoku</string>
+    <string name="clearBox">Clear Box</string>
+    <string name="clearSudoku">Clear Sudoku</string>
     <string name="blank"> </string>
+    <string name="clear">Clear</string>
 </resources>
