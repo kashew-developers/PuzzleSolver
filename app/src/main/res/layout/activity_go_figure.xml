@@ -1,158 +1,204 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".GoFigure">
 
-    <LinearLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:gravity="center"
-        android:orientation="vertical">
+        android:layout_gravity="center">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:text="@string/goFigureTitle"
-            android:textColor="#424242"
-            android:textSize="35sp"
-            android:textStyle="italic" />
-
-        <HorizontalScrollView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:orientation="horizontal"
-                android:padding="10dp">
-
-                <EditText
-                    android:id="@+id/box1"
-                    android:layout_width="50dp"
-                    android:layout_height="50dp"
-                    android:background="@drawable/input_box"
-                    android:gravity="center"
-                    android:inputType="number"
-                    android:text="@string/blank" />
-
-                <TextView
-                    android:id="@+id/operator1"
-                    android:layout_width="30dp"
-                    android:layout_height="30dp"
-                    android:layout_margin="10dp"
-                    android:background="@drawable/operator_box"
-                    android:gravity="center"
-                    android:text="@string/blank"
-                    android:textColor="#000000"
-                    android:textSize="15sp" />
-
-                <EditText
-                    android:id="@+id/box2"
-                    android:layout_width="50dp"
-                    android:layout_height="50dp"
-                    android:background="@drawable/input_box"
-                    android:gravity="center"
-                    android:inputType="number"
-                    android:text="@string/blank" />
-
-                <TextView
-                    android:id="@+id/operator2"
-                    android:layout_width="30dp"
-                    android:layout_height="30dp"
-                    android:layout_margin="10dp"
-                    android:background="@drawable/operator_box"
-                    android:gravity="center"
-                    android:text="@string/blank"
-                    android:textColor="#000000"
-                    android:textSize="15sp" />
-
-                <EditText
-                    android:id="@+id/box3"
-                    android:layout_width="50dp"
-                    android:layout_height="50dp"
-                    android:background="@drawable/input_box"
-                    android:gravity="center"
-                    android:inputType="number"
-                    android:text="@string/blank" />
-
-                <TextView
-                    android:id="@+id/operator3"
-                    android:layout_width="30dp"
-                    android:layout_height="30dp"
-                    android:layout_margin="10dp"
-                    android:background="@drawable/operator_box"
-                    android:gravity="center"
-                    android:text="@string/blank"
-                    android:textColor="#000000"
-                    android:textSize="15sp" />
-
-                <EditText
-                    android:id="@+id/box4"
-                    android:layout_width="50dp"
-                    android:layout_height="50dp"
-                    android:background="@drawable/input_box"
-                    android:gravity="center"
-                    android:inputType="number"
-                    android:text="@string/blank" />
-
-                <TextView
-                    android:id="@+id/operator4"
-                    android:layout_width="30dp"
-                    android:layout_height="30dp"
-                    android:layout_margin="10dp"
-                    android:gravity="center"
-                    android:text="@string/equal"
-                    android:textColor="#000000" />
-
-                <EditText
-                    android:id="@+id/box5"
-                    android:layout_width="50dp"
-                    android:layout_height="50dp"
-                    android:background="@drawable/input_box"
-                    android:gravity="center"
-                    android:inputType="number"
-                    android:text="@string/blank" />
-
-            </LinearLayout>
-
-        </HorizontalScrollView>
-
+        <!-- equation section -->
         <LinearLayout
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:gravity="center"
-            android:orientation="horizontal">
+            android:layout_marginBottom="20dp"
+            android:orientation="horizontal"
+            android:paddingStart="10dp"
+            android:paddingTop="10dp"
+            android:paddingEnd="10dp"
+            android:paddingBottom="10dp"
+            app:layout_constraintBottom_toTopOf="@id/horizontal_guideline"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
 
-            <Button
-                android:id="@+id/solveButton"
-                android:layout_width="wrap_content"
+            <EditText
+                android:id="@+id/box1"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_margin="10dp"
-                android:background="@drawable/button_box"
-                android:onClick="onSolveClick"
-                android:text="@string/solve"
-                android:textColor="#757575"
-                android:textStyle="italic|bold" />
+                android:layout_weight="3"
+                android:gravity="center"
+                android:hint="@string/questionMark"
+                android:importantForAutofill="no"
+                android:inputType="number" />
 
-            <Button
-                android:id="@+id/clearButton"
-                android:layout_width="wrap_content"
+            <TextView
+                android:id="@+id/operator1"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_margin="10dp"
-                android:background="@drawable/button_box"
-                android:onClick="onClearClick"
-                android:text="@string/clear"
-                android:textColor="#757575"
-                android:textStyle="italic|bold" />
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="@string/blank"
+                android:textColor="#000000"
+                android:textSize="15sp" />
+
+            <EditText
+                android:id="@+id/box2"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="3"
+                android:gravity="center"
+                android:hint="@string/questionMark"
+                android:importantForAutofill="no"
+                android:inputType="number" />
+
+            <TextView
+                android:id="@+id/operator2"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="@string/blank"
+                android:textColor="#000000"
+                android:textSize="15sp" />
+
+            <EditText
+                android:id="@+id/box3"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="3"
+                android:gravity="center"
+                android:hint="@string/questionMark"
+                android:importantForAutofill="no"
+                android:inputType="number" />
+
+            <TextView
+                android:id="@+id/operator3"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="@string/blank"
+                android:textColor="#000000"
+                android:textSize="15sp" />
+
+            <EditText
+                android:id="@+id/box4"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="3"
+                android:gravity="center"
+                android:hint="@string/questionMark"
+                android:importantForAutofill="no"
+                android:inputType="number" />
+
+            <TextView
+                android:id="@+id/operator4"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="@string/equal"
+                android:textColor="#000000" />
+
+            <EditText
+                android:id="@+id/box5"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="3"
+                android:gravity="center"
+                android:hint="@string/questionMark"
+                android:importantForAutofill="no"
+                android:inputType="number" />
 
         </LinearLayout>
 
-    </LinearLayout>
+        <ProgressBar
+            android:id="@+id/progressBar"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:layout_marginEnd="5dp"
+            android:indeterminate="true"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/horizontal_guideline" />
+
+        <!-- bodmas toggle -->
+        <Switch
+            android:id="@+id/bodmasToggle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checked="true"
+            android:onClick="onBodmasClicked"
+            app:layout_constraintBottom_toBottomOf="@id/bodmasLabel"
+            app:layout_constraintStart_toStartOf="@id/solveButton"
+            app:layout_constraintTop_toTopOf="@id/bodmasLabel" />
+
+        <!-- bodmas label -->
+        <TextView
+            android:id="@+id/bodmasLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="20dp"
+            android:text="@string/use_bodmas"
+            android:textColor="#000000"
+            android:textSize="20sp"
+            android:textStyle="italic"
+            app:layout_constraintStart_toEndOf="@id/bodmasToggle"
+            app:layout_constraintTop_toBottomOf="@id/progressBar" />
+
+        <!-- solve button -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/solveButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="20dp"
+            android:onClick="onSolveClicked"
+            android:text="@string/solve"
+            app:cornerRadius="10dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/vertical_guideline"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/bodmasLabel" />
+
+        <!-- clear button -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/clearButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="20dp"
+            android:onClick="onClearClicked"
+            android:text="@string/clear"
+            app:cornerRadius="10dp"
+            app:layout_constraintBottom_toBottomOf="@id/solveButton"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/vertical_guideline"
+            app:layout_constraintTop_toTopOf="@id/solveButton" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/vertical_guideline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.5" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/horizontal_guideline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.5" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </ScrollView>
