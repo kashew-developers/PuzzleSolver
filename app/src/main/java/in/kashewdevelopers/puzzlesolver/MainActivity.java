@@ -1,49 +1,34 @@
 package in.kashewdevelopers.puzzlesolver;
 
-import androidx.cardview.widget.CardView;
-
-import android.app.Activity;
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
 import android.widget.Toast;
 
-public class MainActivity extends Activity {
+import androidx.appcompat.app.AppCompatActivity;
 
-    CardView goFigureCard, sudokuCard;
+public class MainActivity extends AppCompatActivity {
+
     boolean backPressed = false;
     Toast backPressedToast;
 
+    @SuppressLint("ShowToast")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        goFigureCard = findViewById(R.id.goFigureCard);
-        sudokuCard = findViewById(R.id.sudokuCard);
         backPressedToast = Toast.makeText(this, "Press Back Again", Toast.LENGTH_SHORT);
-
-        goFigureCard.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(MainActivity.this, GoFigure.class));
-            }
-        });
-
-        sudokuCard.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(MainActivity.this, Sudoku.class));
-            }
-        });
-
     }
 
     @Override
     public void onBackPressed() {
-
-        if( backPressed ) super.onBackPressed();
+        if (backPressed) {
+            super.onBackPressed();
+            return;
+        }
 
         backPressed = true;
         backPressedToast.show();
@@ -53,7 +38,6 @@ public class MainActivity extends Activity {
                 backPressed = false;
             }
         }, 2000);
-
     }
 
     @Override
@@ -61,4 +45,15 @@ public class MainActivity extends Activity {
         backPressedToast.cancel();
         super.onDestroy();
     }
+
+
+    // handle widget clicks
+    public void goFigureClicked(View v) {
+        startActivity(new Intent(this, GoFigure.class));
+    }
+
+    public void sudokuClicked(View v) {
+        startActivity(new Intent(this, Sudoku.class));
+    }
+
 }
