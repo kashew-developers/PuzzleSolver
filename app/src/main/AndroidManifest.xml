@@ -4,25 +4,24 @@
 
     <application
         android:allowBackup="true"
+        android:fullBackupContent="true"
         android:icon="@drawable/logo"
         android:label="@string/app_name"
         android:roundIcon="@drawable/logo"
+
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+
         <activity
             android:name=".Sudoku"
-            android:windowSoftInputMode="stateUnchanged">
-            <intent-filter>
-                <action android:name="android.intent.action.VIEW" />
-            </intent-filter>
-        </activity>
+            android:configChanges="orientation|screenSize|screenLayout"
+            android:label="@string/sudokuTitle" />
+
         <activity
             android:name=".GoFigure"
-            android:screenOrientation="userLandscape">
-            <intent-filter>
-                <action android:name="android.intent.action.VIEW" />
-            </intent-filter>
-        </activity>
+            android:configChanges="orientation|screenSize|screenLayout"
+            android:label="@string/goFigureTitle" />
+
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -31,6 +30,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
     </application>
 
 </manifest>
