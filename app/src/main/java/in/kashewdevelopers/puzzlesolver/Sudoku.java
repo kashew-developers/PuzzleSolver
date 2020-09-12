@@ -13,6 +13,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -26,7 +27,8 @@ import java.util.Set;
 public class Sudoku extends AppCompatActivity {
 
     LinearLayout grid, inputPanel;
-    Button clearButton;
+    Button clearButton, solveButton;
+    ProgressBar progressBar;
     boolean backPressed;
 
     Toast pressBackToast, selectBlockForInputToast, lessInputToast, invalidInputToast;
@@ -93,9 +95,14 @@ public class Sudoku extends AppCompatActivity {
     }
 
     public void initializeWidgets() {
-        clearButton = findViewById(R.id.clearButton);
         grid = findViewById(R.id.sudokuBoxes);
         inputPanel = findViewById(R.id.inputPanel);
+
+        clearButton = findViewById(R.id.clearButton);
+        solveButton = findViewById(R.id.solveButton);
+        progressBar = findViewById(R.id.progressBar);
+
+        progressBar.setVisibility(View.GONE);
     }
 
     @SuppressLint("ShowToast")
@@ -310,7 +317,6 @@ public class Sudoku extends AppCompatActivity {
 
                 // Assign solution in matrix
                 matrix[position[0]][position[1]] = value;
-                sudokuBoxesView[position[0]][position[1]].setText(String.valueOf(value));
 
                 // Find position of next box
                 int[] nextBoxPosition = {position[0], position[1]};
@@ -327,7 +333,6 @@ public class Sudoku extends AppCompatActivity {
         // if the puzzle is not solved, assign 0 to current position box (previous value)
         if (!solved) {
             matrix[position[0]][position[1]] = 0;
-            sudokuBoxesView[position[0]][position[1]].setText("");
         }
 
         return solved;
@@ -439,6 +444,10 @@ public class Sudoku extends AppCompatActivity {
             sudokuBoxClicked(selectedBlock);
         }
 
+        solveButton.setEnabled(false);
+        clearButton.setEnabled(false);
+        progressBar.setVisibility(View.VISIBLE);
+
         /*
          * When user clicks the SOLVE button,
          * read all the values inserted in the sudoku matrix
@@ -453,10 +462,9 @@ public class Sudoku extends AppCompatActivity {
         int zeroCount = 0;
 
         // Traverse through each box & store its value in matrix
-        for (int r = 0; r < grid.getChildCount(); r++) {
-            LinearLayout row = (LinearLayout) grid.getChildAt(r);
-            for (int c = 0; c < row.getChildCount(); c++) {
-                TextView box = (TextView) row.getChildAt(c);
+        for (int r = 0; r < 9; r++) {
+            for (int c = 0; c < 9; c++) {
+                TextView box = sudokuBoxesView[r][c];
                 sudokuMatrix[r][c] = (box.getText().length() != 0) ? (Integer.parseInt(box.getText().toString())) : 0;
                 if (sudokuMatrix[r][c] == 0)
                     zeroCount++;
@@ -466,12 +474,18 @@ public class Sudoku extends AppCompatActivity {
         // Minimum 16 numbers are required to solve a sudoku
         if (81 - zeroCount < 16) {
             lessInputToast.show();
+            clearButton.setEnabled(true);
+            solveButton.setEnabled(true);
+            progressBar.setVisibility(View.GONE);
             return;
         }
 
         // Check if the input is valid
         if (!validateInput(sudokuMatrix)) {
             invalidInputToast.show();
+            clearButton.setEnabled(true);
+            solveButton.setEnabled(true);
+            progressBar.setVisibility(View.GONE);
         }
 
         /*
@@ -479,8 +493,20 @@ public class Sudoku extends AppCompatActivity {
          * to the SOLVE method.
          * Solve returns TRUE if puzzle solved,
          * FALSE otherwise
+         *
+         * if solved, show result
          */
-        solve(sudokuMatrix, new int[]{0, 0});
+        if (solve(sudokuMatrix, new int[]{0, 0})) {
+            for (int r = 0; r < 9; r++) {
+                for (int c = 0; c < 9; c++) {
+                    sudokuBoxesView[r][c].setText(String.valueOf(sudokuMatrix[r][c]));
+                }
+            }
+        }
+
+        clearButton.setEnabled(true);
+        solveButton.setEnabled(true);
+        progressBar.setVisibility(View.GONE);
     }
 
 }

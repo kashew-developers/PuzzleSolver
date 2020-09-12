@@ -63,6 +63,15 @@
             app:layout_constraintStart_toEndOf="@id/vertical_guideline"
             app:layout_constraintTop_toTopOf="@id/solveButton" />
 
+        <ProgressBar
+            android:id="@+id/progressBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="@id/solveButton"
+            app:layout_constraintEnd_toEndOf="@id/solveButton"
+            app:layout_constraintStart_toStartOf="@id/solveButton"
+            app:layout_constraintTop_toTopOf="@id/solveButton" />
+
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/vertical_guideline"
             android:layout_width="wrap_content"
