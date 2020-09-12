@@ -14,12 +14,10 @@
 
         <activity
             android:name=".Sudoku"
-            android:configChanges="orientation|screenSize|screenLayout"
             android:label="@string/sudokuTitle" />
 
         <activity
             android:name=".GoFigure"
-            android:configChanges="orientation|screenSize|screenLayout"
             android:label="@string/goFigureTitle" />
 
         <activity android:name=".MainActivity">
