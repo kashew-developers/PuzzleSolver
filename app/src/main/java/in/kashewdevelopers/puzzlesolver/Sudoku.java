@@ -31,7 +31,7 @@ public class Sudoku extends AppCompatActivity {
     ProgressBar progressBar;
     boolean backPressed;
 
-    Toast pressBackToast, selectBlockForInputToast, lessInputToast, invalidInputToast;
+    Toast pressBackToast, selectBlockForInputToast, lessInputToast, invalidInputToast, cannotSolveToast;
 
     TextView[][] sudokuBoxesView;
     TextView selectedBlock;
@@ -109,6 +109,9 @@ public class Sudoku extends AppCompatActivity {
     public void initializeToasts() {
         invalidInputToast = Toast.makeText(this, R.string.invalid_sudoku_input, Toast.LENGTH_LONG);
         invalidInputToast.setGravity(Gravity.CENTER, 0, 0);
+
+        cannotSolveToast = Toast.makeText(this, R.string.sudoku_cannot_solve, Toast.LENGTH_LONG);
+        cannotSolveToast.setGravity(Gravity.CENTER, 0, 0);
 
         pressBackToast = Toast.makeText(this, R.string.back_press, Toast.LENGTH_SHORT);
         pressBackToast.setGravity(Gravity.CENTER, 0, 0);
@@ -502,6 +505,8 @@ public class Sudoku extends AppCompatActivity {
                     sudokuBoxesView[r][c].setText(String.valueOf(sudokuMatrix[r][c]));
                 }
             }
+        } else {
+            cannotSolveToast.show();
         }
 
         clearButton.setEnabled(true);

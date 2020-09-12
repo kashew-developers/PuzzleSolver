@@ -12,6 +12,7 @@
     <string name="invalid_sudoku_input">Invalid Input. Check the entered numbers</string>
     <string name="sudoku_select_block">select any above block for input</string>
     <string name="sudoku_select_min_blocks">At Least 16 numbers should be entered</string>
+    <string name="sudoku_cannot_solve">This set of numbers cannot be solved.</string>
 
     <!-- buttons -->
     <string name="solve">Solve</string>
