@@ -1,15 +1,30 @@
 <resources>
     <string name="app_name">Puzzle Solver</string>
 
+    <!-- titles -->
     <string name="goFigureTitle">GoFigure</string>
-    <string name="emptyInput">Enter Numbers above</string>
-
     <string name="sudokuTitle">Sudoku</string>
 
-    <string name="equal">=</string>
-    <string name="solve">Solve Sudoku</string>
+    <!-- Toasts -->
+    <string name="back_press">Press Back Again</string>
+    <string name="boxes_empty">Enter all values</string>
+    <string name="cannot_solve_go_figure">This set of numbers cannot be solved</string>
+    <string name="invalid_sudoku_input">Invalid Input. Check the entered numbers</string>
+    <string name="sudoku_select_block">select any above block for input</string>
+    <string name="sudoku_select_min_blocks">At Least 16 numbers should be entered</string>
+
+    <!-- buttons -->
+    <string name="solve">Solve</string>
     <string name="clearBox">Clear Box</string>
     <string name="clearSudoku">Clear Sudoku</string>
-    <string name="blank"> </string>
     <string name="clear">Clear</string>
+
+    <!-- hints / inputs -->
+    <string name="equal">=</string>
+    <string name="blank"> </string>
+    <string name="questionMark">\?</string>
+
+    <!-- labels -->
+    <string name="use_bodmas">Use BODMAS rule</string>
+
 </resources>
