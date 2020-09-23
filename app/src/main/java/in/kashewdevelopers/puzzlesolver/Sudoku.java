@@ -21,6 +21,9 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.InterstitialAd;
+
 import java.util.HashSet;
 import java.util.Set;
 
@@ -37,6 +40,8 @@ public class Sudoku extends AppCompatActivity {
     TextView selectedBlock;
     Drawable previousBackground;
 
+    InterstitialAd interstitialAd;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,6 +50,7 @@ public class Sudoku extends AppCompatActivity {
         initialize();
         createUiElements();
         addBackButton();
+        loadAds();
     }
 
     @Override
@@ -512,6 +518,22 @@ public class Sudoku extends AppCompatActivity {
         clearButton.setEnabled(true);
         solveButton.setEnabled(true);
         progressBar.setVisibility(View.GONE);
+
+        showAds();
+    }
+
+
+    // handle ads
+    public void loadAds() {
+        interstitialAd = new InterstitialAd(this);
+        interstitialAd.setAdUnitId(getString(R.string.full_ad_id));
+        interstitialAd.loadAd(new AdRequest.Builder().build());
+    }
+
+    public void showAds() {
+        if (interstitialAd != null && interstitialAd.isLoaded()) {
+            interstitialAd.show();
+        }
     }
 
 }

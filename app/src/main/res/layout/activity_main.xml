@@ -1,105 +1,126 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="10dp">
+        app:layout_constraintBottom_toTopOf="@id/adUnit"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0">
 
-        <!-- Go Figure section -->
-        <LinearLayout
-            android:id="@+id/goFigureSection"
-            android:layout_width="0dp"
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:background="@drawable/main_cards"
-            android:clickable="true"
-            android:elevation="5dp"
-            android:focusable="true"
-            android:gravity="center"
-            android:onClick="goFigureClicked"
-            android:orientation="vertical"
-            android:padding="10dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@id/vertical_guideline"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+            android:padding="10dp">
 
-            <ImageView
-                android:layout_width="match_parent"
+            <!-- Go Figure section -->
+            <LinearLayout
+                android:id="@+id/goFigureSection"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:clickable="false"
-                android:contentDescription="@string/goFigureTitle"
-                android:focusable="false"
-                app:srcCompat="@drawable/gofigure_icon" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:clickable="false"
-                android:focusable="false"
+                android:layout_margin="10dp"
+                android:background="@drawable/main_cards"
+                android:clickable="true"
+                android:elevation="5dp"
+                android:focusable="true"
                 android:gravity="center"
-                android:text="@string/goFigureTitle"
-                android:textColor="@color/colorOnBackground"
-                android:textStyle="bold|italic" />
+                android:onClick="goFigureClicked"
+                android:orientation="vertical"
+                android:padding="10dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/vertical_guideline"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
 
-        </LinearLayout>
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:clickable="false"
+                    android:contentDescription="@string/goFigureTitle"
+                    android:focusable="false"
+                    app:srcCompat="@drawable/gofigure_icon" />
 
-        <!-- Sudoku section -->
-        <LinearLayout
-            android:id="@+id/sudokuSection"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:background="@drawable/main_cards"
-            android:clickable="true"
-            android:elevation="5dp"
-            android:focusable="true"
-            android:gravity="center"
-            android:onClick="sudokuClicked"
-            android:orientation="vertical"
-            android:padding="10dp"
-            app:layout_constraintBottom_toBottomOf="@id/goFigureSection"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@id/vertical_guideline"
-            app:layout_constraintTop_toTopOf="@id/goFigureSection">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:clickable="false"
+                    android:focusable="false"
+                    android:gravity="center"
+                    android:text="@string/goFigureTitle"
+                    android:textColor="@color/colorOnBackground"
+                    android:textStyle="bold|italic" />
 
-            <ImageView
-                android:layout_width="match_parent"
+            </LinearLayout>
+
+            <!-- Sudoku section -->
+            <LinearLayout
+                android:id="@+id/sudokuSection"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:clickable="false"
-                android:contentDescription="@string/sudokuTitle"
-                android:focusable="false"
-                app:srcCompat="@drawable/sudoku_icon" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:clickable="false"
-                android:focusable="false"
+                android:layout_margin="10dp"
+                android:background="@drawable/main_cards"
+                android:clickable="true"
+                android:elevation="5dp"
+                android:focusable="true"
                 android:gravity="center"
-                android:text="@string/sudokuTitle"
-                android:textColor="@color/colorOnBackground"
-                android:textStyle="italic|bold" />
+                android:onClick="sudokuClicked"
+                android:orientation="vertical"
+                android:padding="10dp"
+                app:layout_constraintBottom_toBottomOf="@id/goFigureSection"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/vertical_guideline"
+                app:layout_constraintTop_toTopOf="@id/goFigureSection">
 
-        </LinearLayout>
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:clickable="false"
+                    android:contentDescription="@string/sudokuTitle"
+                    android:focusable="false"
+                    app:srcCompat="@drawable/sudoku_icon" />
 
-        <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/vertical_guideline"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            app:layout_constraintGuide_percent="0.5" />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:clickable="false"
+                    android:focusable="false"
+                    android:gravity="center"
+                    android:text="@string/sudokuTitle"
+                    android:textColor="@color/colorOnBackground"
+                    android:textStyle="italic|bold" />
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            </LinearLayout>
 
-</ScrollView>
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/vertical_guideline"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent="0.5" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </ScrollView>
+
+    <com.google.android.gms.ads.AdView xmlns:ads="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/adUnit"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        ads:adSize="BANNER"
+        ads:adUnitId="@string/bottom_ad_id"
+        ads:layout_constraintBottom_toBottomOf="parent"
+        ads:layout_constraintEnd_toEndOf="parent"
+        ads:layout_constraintStart_toStartOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

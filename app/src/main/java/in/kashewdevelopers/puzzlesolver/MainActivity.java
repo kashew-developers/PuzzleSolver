@@ -14,6 +14,10 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
 
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.MobileAds;
+
 public class MainActivity extends AppCompatActivity {
 
     boolean backPressed = false;
@@ -30,7 +34,7 @@ public class MainActivity extends AppCompatActivity {
 
         setContentView(R.layout.activity_main);
 
-
+        applyAds();
 
         backPressedToast = Toast.makeText(this, "Press Back Again", Toast.LENGTH_SHORT);
     }
@@ -82,6 +86,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
+    // handle shared preference
     public boolean isDarkThemeSelected() {
         SharedPreferences sharedPreferences = getSharedPreferences("themeInfo", MODE_PRIVATE);
         return sharedPreferences.getBoolean("darkTheme", false);
@@ -92,6 +97,7 @@ public class MainActivity extends AppCompatActivity {
         sharedPreferences.edit().putBoolean("darkTheme", darkTheme).apply();
     }
 
+
     // handle widget clicks
     public void goFigureClicked(View v) {
         startActivity(new Intent(this, GoFigure.class));
@@ -99,6 +105,15 @@ public class MainActivity extends AppCompatActivity {
 
     public void sudokuClicked(View v) {
         startActivity(new Intent(this, Sudoku.class));
+    }
+
+
+    // handle ads
+    public void applyAds() {
+        MobileAds.initialize(this);
+
+        AdView adUnit = findViewById(R.id.adUnit);
+        adUnit.loadAd(new AdRequest.Builder().build());
     }
 
 }
