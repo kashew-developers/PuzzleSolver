@@ -3,4 +3,13 @@
     <color name="colorPrimary">#FFAB00</color>
     <color name="colorPrimaryDark">#D19400</color>
     <color name="colorAccent">#FFC25E</color>
+
+    <color name="colorCardBackground">@android:color/white</color>
+    <color name="colorOnPrimary">@android:color/white</color>
+    <color name="colorOnBackground">@android:color/tab_indicator_text</color>
+
+    <color name="colorInputBackground">@android:color/white</color>
+    <color name="colorShadedBackground">#e3dbdbff</color>
+    <color name="colorSelectedBackground">#FAD44F</color>
+
 </resources>

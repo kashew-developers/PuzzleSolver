@@ -8,13 +8,14 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ProgressBar;
-import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.google.android.material.switchmaterial.SwitchMaterial;
 
 import java.util.Stack;
 
@@ -23,7 +24,7 @@ public class GoFigure extends AppCompatActivity {
     EditText input_1, input_2, input_3, input_4, answer;
     TextView operator_1, operator_2, operator_3;
     ProgressBar progressBar;
-    Switch bodmasSwitch;
+    SwitchMaterial bodmasSwitch;
     Toast incompleteInput, cannotSolveToast, backPressedToast;
     boolean backPressed = false, useBodmasRule = true;
 

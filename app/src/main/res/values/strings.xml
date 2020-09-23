@@ -27,5 +27,6 @@
 
     <!-- labels -->
     <string name="use_bodmas">Use BODMAS rule</string>
+    <string name="dark_mode">Dark Mode</string>
 
 </resources>

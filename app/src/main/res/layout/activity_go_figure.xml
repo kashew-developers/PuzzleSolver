@@ -129,7 +129,7 @@
             app:layout_constraintTop_toBottomOf="@id/horizontal_guideline" />
 
         <!-- bodmas toggle -->
-        <Switch
+        <com.google.android.material.switchmaterial.SwitchMaterial
             android:id="@+id/bodmasToggle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -147,7 +147,7 @@
             android:layout_marginStart="15dp"
             android:layout_marginTop="20dp"
             android:text="@string/use_bodmas"
-            android:textColor="#000000"
+            android:textColor="@color/colorOnBackground"
             android:textSize="20sp"
             android:textStyle="italic"
             app:layout_constraintStart_toEndOf="@id/bodmasToggle"

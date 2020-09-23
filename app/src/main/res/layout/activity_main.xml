@@ -33,6 +33,7 @@
             <ImageView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center"
                 android:clickable="false"
                 android:contentDescription="@string/goFigureTitle"
                 android:focusable="false"
@@ -46,6 +47,7 @@
                 android:focusable="false"
                 android:gravity="center"
                 android:text="@string/goFigureTitle"
+                android:textColor="@color/colorOnBackground"
                 android:textStyle="bold|italic" />
 
         </LinearLayout>
@@ -86,6 +88,7 @@
                 android:focusable="false"
                 android:gravity="center"
                 android:text="@string/sudokuTitle"
+                android:textColor="@color/colorOnBackground"
                 android:textStyle="italic|bold" />
 
         </LinearLayout>
